@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Simple Calculator with HTML, CSS and JavaScript</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="calculator.css" rel="stylesheet">
+    <script src="calculator.js"></script>
+</head>
+  <body>
+    <div class="main mx-auto">
+        <table class="mx-auto">
+            <tr>
+             <td colspan="4"> <input class="textt" type="text" id="display" disabled> </td>
+             <td> <input class="btn" type="button" value="/" onclick="appendToDisplay('/')"> </td>
+            </tr>
+
+            <tr>
+             <td> <input class="btn" type="button" value="1" onclick="appendToDisplay('1')"> </td>
+             <td> <input class="btn" type="button" value="2" onclick="appendToDisplay('2')"> </td>
+             <td> <input class="btn" type="button" value="3" onclick="appendToDisplay('3')"> </td>
+             <td> <input class="btn" type="button" value="+" onclick="appendToDisplay('+')"> </td>
+             <td> <input class="btn" type="button" value="." onclick="appendToDisplay('.')"> </td>
+            </tr>
+
+            <tr>
+             <td> <input class="btn" type="button" value="4" onclick="appendToDisplay('4')"> </td>
+             <td> <input class="btn" type="button" value="5" onclick="appendToDisplay('5')"> </td>
+             <td> <input class="btn" type="button" value="6" onclick="appendToDisplay('6')"> </td>
+             <td> <input class="btn" type="button" value="-" onclick="appendToDisplay('-')"> </td>
+             <td> <input class="btn" type="button" value="&#40" onclick="appendToDisplay('&#40')"> </td>
+            </tr>
+
+            <tr>
+             <td><input class="btn" type="button" value="7" onclick="appendToDisplay('7')"> </td>
+             <td><input class="btn" type="button" value="8" onclick="appendToDisplay('8')"> </td>
+             <td><input class="btn" type="button" value="9" onclick="appendToDisplay('9')"> </td>
+             <td><input class="btn" type="button" value="*" onclick="appendToDisplay('*')"> </td>
+             <td> <input class="btn" type="button" value="&#41" onclick="appendToDisplay('&#41')"> </td>
+            </tr>
+
+            <tr>
+             <td><input class="btn" type="button" value="C" onclick="clearDisplay()"> </td>
+             <td><input class="btn" type="button" value="0" onclick="appendToDisplay('0')"> </td>
+             <td><input class="btn" type="button" value="=" onclick="computeDisplay()"> </td>
+             <td colspan="2"><input class="btn" type="button" value="DEL" onclick="deletOneValue()"> </td>
+            </tr>
+        </table>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  </body>
+</html>
