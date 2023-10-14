@@ -1,33 +1,26 @@
+
 function computeDisplay() {
     try {
-    const expression = document.getElementById('display').value;
+    const expression = document.getElementById('expression-display').value;
     const result = eval(expression);
-    document.getElementById('display').value = result;
-    return result;
+    document.getElementById('calculated-display').value = result;
     } catch(error) {
-        document.getElementById('display').value = "Error input"
-        return "Error input";
+        document.getElementById('calculated-display').value = "Error input"
 
     }
 }
 
 function appendToDisplay(value) {
-    const resultValue = computeDisplay();
-
-    if (resultValue !== undefined || resultValue !== null || resultValue !== "Error input") {
-        document.getElementById('display').value = value;
-    } else {
-        document.getElementById('display').value += value;
-    }
-    
+        document.getElementById('expression-display').value += value;
 }
 
 function clearDisplay() {
-    document.getElementById('display').value = "";
+    document.getElementById('expression-display').value = "";
+    document.getElementById('calculated-display').value = "";
 }
 
 function deletOneValue(){
-    const value = document.getElementById('display').value;
+    const value = document.getElementById('expression-display').value;
     const deletedKey = value.slice(0, -1);
     document.getElementById('display').value = deletedKey;
 

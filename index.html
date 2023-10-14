@@ -3,52 +3,71 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Simple Calculator with HTML, CSS and JavaScript</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link href="calculator.css" rel="stylesheet">
-    <script src="calculator.js"></script>
-</head>
-  <body>
-    <div class="main mx-auto">
-        <table class="mx-auto">
-            <tr>
-             <td colspan="4"> <input class="textt" type="text" id="display" disabled> </td>
-             <td> <input class="btn" type="button" value="/" onclick="appendToDisplay('/')"> </td>
-            </tr>
+    <title>Calculator</title>
+    <link href="calculator.css" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- MDB -->
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.css" rel="stylesheet" /> 
+   
+  </head>
+  <body class="bg-primary">
+    <div class="main-container mx-auto">
+    
+       <div class="buttons-container">
+        <div class="top-space"></div>
+          <div class="topOne">
+             <div class="time-Icon">9:45</div>
+             <div class="network-Icon"><i class="fa-solid fa-wifi"></i></div>
+             <div class="wifi-Icon"><i class="fa-solid fa-signal"></i></div>
+             <div class="battery-Icon"><i class="fa-solid fa-battery-three-quarters"></i></div>
+          </div>
 
-            <tr>
-             <td> <input class="btn" type="button" value="1" onclick="appendToDisplay('1')"> </td>
-             <td> <input class="btn" type="button" value="2" onclick="appendToDisplay('2')"> </td>
-             <td> <input class="btn" type="button" value="3" onclick="appendToDisplay('3')"> </td>
-             <td> <input class="btn" type="button" value="+" onclick="appendToDisplay('+')"> </td>
-             <td> <input class="btn" type="button" value="." onclick="appendToDisplay('.')"> </td>
-            </tr>
+          <div class="topTwo">
+             <div class="menu-Icon"><i class="fa-solid fa-bars"></i></div>
+             <div class="title"> <p class="fw-bold">CALCULATOR</p> </div>
+             <div class="settings-Icon"><i class="fa-solid fa-ellipsis-vertical"></i></div>
+          </div>
 
-            <tr>
-             <td> <input class="btn" type="button" value="4" onclick="appendToDisplay('4')"> </td>
-             <td> <input class="btn" type="button" value="5" onclick="appendToDisplay('5')"> </td>
-             <td> <input class="btn" type="button" value="6" onclick="appendToDisplay('6')"> </td>
-             <td> <input class="btn" type="button" value="-" onclick="appendToDisplay('-')"> </td>
-             <td> <input class="btn" type="button" value="&#40" onclick="appendToDisplay('&#40')"> </td>
-            </tr>
+          <input class="inputOne fs-4" type="text" id="expression-display" disable>
+          <input class="inputTwo fs-1 text-primary" type="text" id="calculated-display" disable>
+          <button type="button" class="btn btn-secondary operator fw-bolder fs-5 d-flex align-items-center justify-content-center text-success" onclick="clearDisplay()">AC</button>
+          <button type="button" class="btn btn-secondary operator fw-bolder fs-5 text-success"><i class="fa-solid fa-plus-minus"></i></button>
+          <button type="button" class="btn btn-secondary operator fw-bolder fs-5 text-success" onclick="appendToDisplay('%')"><i class="fa-solid fa-percent"></i></button>
+          <button type="button" class="btn btn-secondary operator fw-bolder fs-5 text-primary" onclick="appendToDisplay('/')"><i class="fa-solid fa-divide"></i></button>
+          
+          <button type="button" class="btn btn-secondary num fw-bolder fs-5 text-dark" onclick="appendToDisplay('7')">7</button>
+          <button type="button" class="btn btn-secondary num fw-bolder fs-5 text-dark" onclick="appendToDisplay('8')">8</button>
+          <button type="button" class="btn btn-secondary num fw-bolder fs-5 text-dark" onclick="appendToDisplay('9')">9</button>
+          <button type="button" class="btn btn-secondary operator fw-bolder fs-5 text-primary" onclick="appendToDisplay('*')"><i class="fa-solid fa-xmark"></i></button>
+          
+          <button type="button" class="btn btn-secondary num fw-bolder fs-5 text-dark" onclick="appendToDisplay('4')">4</button>
+          <button type="button" class="btn btn-secondary num fw-bolder fs-5 text-dark" onclick="appendToDisplay('5')">5</button>
+          <button type="button" class="btn btn-secondary num fw-bolder fs-5 text-dark" onclick="appendToDisplay('6')">6</button>
+          <button type="button" class="btn btn-secondary operator fw-bolder fs-5 text-primary" onclick="appendToDisplay('-')"><i class="fa-solid fa-minus"></i></button>
+          
+          <button type="button" class="btn btn-secondary num fw-bolder fs-5 text-dark" onclick="appendToDisplay('1')">1</button>
+          <button type="button" class="btn btn-secondary num fw-bolder fs-5 text-dark" onclick="appendToDisplay('2')">2</button>
+          <button type="button" class="btn btn-secondary num fw-bolder fs-5 text-dark" onclick="appendToDisplay('3')">3</button>
+          <button type="button" class="btn btn-secondary operator fw-bolder fs-5 text-primary" onclick="appendToDisplay('+')"><i class="fa-solid fa-plus"></i></button>
+          
+          <button type="button" class="btn btn-secondary operator fw-bolder fs-5 text-primary" onclick="deletOneValue()"><i class="fa-solid fa-arrow-left"></i></button>
+          <button type="button" class="btn btn-secondary num fw-bolder fs-5 text-dark" onclick="appendToDisplay('0')">0</button>
+          <button type="button" class="btn btn-secondary num fw-bolder fs-5 text-dark" onclick="appendToDisplay('.')">.</button>
+          <button type="button" class="btn btn-secondary operator fw-bolder fs-5 text-primary" onclick="computeDisplay()"><i class="fa-solid fa-equals"></i></button>
+          
+          <button type="button" class="btn btn-secondary bg"><i class="fa-solid fa-house"></i></button>
+          <button type="button" class="btn btn-secondary bg operator"><i class="fa-solid fa-plus-minus"></i></button>
+          <button type="button" class="btn btn-secondary bg"><i class="fa-solid fa-arrow-left"></i><i class="fa-solid fa-arrow-left fa-rotate-180"></i></button>
+          <button type="button" class="btn btn-secondary bg"><i class="fa-regular fa-user"></i></button>
+       </div>
 
-            <tr>
-             <td><input class="btn" type="button" value="7" onclick="appendToDisplay('7')"> </td>
-             <td><input class="btn" type="button" value="8" onclick="appendToDisplay('8')"> </td>
-             <td><input class="btn" type="button" value="9" onclick="appendToDisplay('9')"> </td>
-             <td><input class="btn" type="button" value="*" onclick="appendToDisplay('*')"> </td>
-             <td> <input class="btn" type="button" value="&#41" onclick="appendToDisplay('&#41')"> </td>
-            </tr>
-
-            <tr>
-             <td><input class="btn" type="button" value="C" onclick="clearDisplay()"> </td>
-             <td><input class="btn" type="button" value="0" onclick="appendToDisplay('0')"> </td>
-             <td><input class="btn" type="button" value="=" onclick="computeDisplay()"> </td>
-             <td colspan="2"><input class="btn" type="button" value="DEL" onclick="deletOneValue()"> </td>
-            </tr>
-        </table>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-  </body>
+    <script type="text/javascript" src="calculator.js"></script>
+    <!-- MDB -->
+<script
+type="text/javascript"
+src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.js"
+></script>
+</body>
 </html>
