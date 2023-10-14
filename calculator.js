@@ -1,9 +1,12 @@
+const input = document.getElementById('expression-display').value;
+const output = document.getElementById('calculated-display').innerHTML;
 
 function computeDisplay() {
     try {
     const expression = document.getElementById('expression-display').value;
     const result = eval(expression);
     document.getElementById('calculated-display').innerHTML = result;
+    return result;
     } catch(error) {
         document.getElementById('calculated-display').value = "Error input"
 
@@ -11,12 +14,13 @@ function computeDisplay() {
 }
 
 function appendToDisplay(value) {
-        document.getElementById('expression-display').value += value;
+    document.getElementById('expression-display').value += value;
+    
 }
 
 function clearDisplay() {
     document.getElementById('expression-display').value = "";
-    document.getElementById('calculated-display').value = "";
+    document.getElementById('calculated-display').innerHTML = "";
 }
 
 function deletOneValue(){
