@@ -3,7 +3,7 @@ function computeDisplay() {
     try {
     const expression = document.getElementById('expression-display').value;
     const result = eval(expression);
-    document.getElementById('calculated-display').value = result;
+    document.getElementById('calculated-display').innerHTML = result;
     } catch(error) {
         document.getElementById('calculated-display').value = "Error input"
 
@@ -22,6 +22,6 @@ function clearDisplay() {
 function deletOneValue(){
     const value = document.getElementById('expression-display').value;
     const deletedKey = value.slice(0, -1);
-    document.getElementById('display').value = deletedKey;
+    document.getElementById('expression-display').value = deletedKey;
 
 }
