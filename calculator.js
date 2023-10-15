@@ -1,21 +1,27 @@
-const input = document.getElementById('expression-display').value;
-const output = document.getElementById('calculated-display').innerHTML;
+let operators = ['+', '/', '-', '*', '%'];
+let calculated = false;
 
 function computeDisplay() {
     try {
     const expression = document.getElementById('expression-display').value;
     const result = eval(expression);
     document.getElementById('calculated-display').innerHTML = result;
-    return result;
+    calculated = true;
     } catch(error) {
-        document.getElementById('calculated-display').value = "Error input"
-
+        document.getElementById('calculated-display').innerHTML = "Error input"
+        calculated = true;
     }
 }
 
 function appendToDisplay(value) {
-    document.getElementById('expression-display').value += value;
+    if (calculated) {
+        if (!isNaN(value || value == '.')) {
+        clearDisplay();
+        }
+        calculated = false;
+    } 
     
+    document.getElementById('expression-display').value += value;
 }
 
 function clearDisplay() {
