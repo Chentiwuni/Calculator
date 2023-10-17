@@ -1,6 +1,5 @@
-let operators = ['+', '/', '-', '*', '%'];
 let calculated = false;
-
+document.getElementById('expression-display').value = "0";
 function computeDisplay() {
     try {
     const expression = document.getElementById('expression-display').value;
@@ -20,12 +19,15 @@ function appendToDisplay(value) {
         }
         calculated = false;
     } 
-    
+    const expressionDisplay = document.getElementById('expression-display');
+    if (expressionDisplay.value === '0' && value !== '.') {
+        document.getElementById('expression-display').value = "";
+    }
     document.getElementById('expression-display').value += value;
 }
 
 function clearDisplay() {
-    document.getElementById('expression-display').value = "";
+    document.getElementById('expression-display').value = "0";
     document.getElementById('calculated-display').innerHTML = "";
 }
 
