@@ -2,9 +2,9 @@ let calculated = false;
 document.getElementById('expression-display').value = "0";
 function computeDisplay() {
     try {
-    const expression = document.getElementById('expression-display').value;
-    const result = eval(expression);
-    document.getElementById('calculated-display').innerHTML = result;
+    let expression = document.getElementById('expression-display').value;
+    expression = expression.replace('x', '*').replace('÷', '/');
+    document.getElementById('calculated-display').innerHTML = eval(expression);
     calculated = true;
     } catch(error) {
         document.getElementById('calculated-display').innerHTML = "Error input"
@@ -23,6 +23,7 @@ function appendToDisplay(value) {
     if (expressionDisplay.value === '0' && value !== '.') {
         document.getElementById('expression-display').value = "";
     }
+    value = value.replace('*', 'x').replace('/', '÷');
     document.getElementById('expression-display').value += value;
 }
 
