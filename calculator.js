@@ -3,8 +3,9 @@ document.getElementById('expression-display').value = "0";
 function computeDisplay() {
     try {
     let expression = document.getElementById('expression-display').value;
-    expression = expression.replace('x', '*').replace('÷', '/');
-    document.getElementById('calculated-display').innerHTML = eval(expression);
+    expression = expression.replace('×', '*').replace('÷', '/');
+    const result = math.evaluate(expression);
+    document.getElementById('calculated-display').innerHTML = result;
     calculated = true;
     } catch(error) {
         document.getElementById('calculated-display').innerHTML = "Error input"
@@ -23,7 +24,7 @@ function appendToDisplay(value) {
     if (expressionDisplay.value === '0' && value !== '.') {
         document.getElementById('expression-display').value = "";
     }
-    value = value.replace('*', 'x').replace('/', '÷');
+    value = value.replace('*', '×').replace('/', '÷');
     document.getElementById('expression-display').value += value;
 }
 
