@@ -19,6 +19,12 @@ function appendToDisplay(value) {
         clearDisplay();
         }
         calculated = false;
+
+        if (value === '/' || value === '*' || value === '+' || value === '-' || value === '%') {
+            const output = document.getElementById('calculated-display').innerHTML;
+            document.getElementById('expression-display').value = output;
+            document.getElementById('calculated-display').innerHTML = "";
+        }
     } 
     const expressionDisplay = document.getElementById('expression-display');
     if (expressionDisplay.value === '0' && value !== '.') {
