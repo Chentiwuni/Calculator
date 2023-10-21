@@ -5,10 +5,8 @@ document.getElementById('expression-display').value = "0"; //set expression-disp
 function computeDisplay() {
     try {
     let expression = document.getElementById('expression-display').value; //fetch expression
-
-    //replace x and ÷ back to * and / which is understood by math.evaluate method
-    expression = expression.replace('×', '*').replace('÷', '/'); 
-    const result = math.evaluate(expression);
+    const expressionReplaced = expression.replace(/×/g, '*').replace(/÷/g, '/');
+    const result = math.evaluate(expressionReplaced);
     document.getElementById('calculated-display').innerHTML = result;
     calculated = true; //set computeToDisplay() to having value
     } catch(error) {
@@ -27,7 +25,7 @@ function appendToDisplay(value) {
         calculated = false; //set the clearing to exercute only for the initial input
 
         //check if value is an operator, if true, append to the calculated value for further computation
-        if (value === '/' || value === '*' || value === '+' || value === '-' || value === '%') {
+        if (value === '÷' || value === '×' || value === '+' || value === '-' || value === '%') {
             const output = document.getElementById('calculated-display').innerHTML;
             document.getElementById('expression-display').value = output;
             document.getElementById('calculated-display').innerHTML = "";
@@ -40,8 +38,6 @@ function appendToDisplay(value) {
         document.getElementById('expression-display').value = "";
     }
 
-    //make expression-display user friendly by replacing '*' and '/' with 'x' and '÷'. this is to replaced back at computeDisplay()
-    value = value.replace('*', '×').replace('/', '÷');
     document.getElementById('expression-display').value += value;
 }
 
