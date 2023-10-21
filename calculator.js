@@ -1,6 +1,10 @@
 let calculated = false; //check if function computeDisplay() has a value
 document.getElementById('expression-display').value = "0"; //set expression-display initial to 0
 
+
+
+
+
 //function to do the calculations on expression-display
 function computeDisplay() {
     try {
@@ -9,11 +13,14 @@ function computeDisplay() {
     const maxDecimalPlace = 10;
     let calculatedDisplay = document.getElementById('calculated-display'); //displays output results
 
+
     //used replace() to replace '×' and '÷' with '*' and '/' and a regular expression to replace in all occurrances
     const expressionReplaced = expression.replace(/×/g, '*').replace(/÷/g, '/');
     const result = math.evaluate(expressionReplaced);
     
+
     let formatedResult = result.toString(); //set result to string to use the string length method
+
 
     //check if result is an integer, if true, truncate else round off result to 10 decimal places
     if (Number.isInteger(result)) {
@@ -31,11 +38,17 @@ function computeDisplay() {
     calculatedDisplay.innerHTML = formatedResult;
     calculated = true; //set computeToDisplay() to having value
 
+    
     } catch(error) {
         document.getElementById('calculated-display').innerHTML = "Error input"
         calculated = true; //set computeToDisplay() to having value
     }
 }
+
+
+
+
+
 
 //function to append values to the expression-display screen
 function appendToDisplay(value) {
@@ -64,11 +77,18 @@ function appendToDisplay(value) {
     document.getElementById('expression-display').value += value;
 }
 
+
+
+
+
 //function to clear 'expression-display' and set it to '0' and only clear 'calculatd-display'
 function clearDisplay() {
     document.getElementById('expression-display').value = "0";
     document.getElementById('calculated-display').innerHTML = "";
 }
+
+
+
 
 //function to delete the later input from 'expression-display'
 function deletOneValue(){
