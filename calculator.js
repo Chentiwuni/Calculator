@@ -14,7 +14,7 @@ function computeDisplay() {
     let calculatedDisplay = document.getElementById('calculated-display'); //displays output results
 
 
-    //used replace() to replace '×' and '÷' with '*' and '/' and a regular expression to replace in all occurrances
+    //used replace() to replace '×' and '÷' with '*' and '/' and a regular expression with 'g'(global) to find matches in all occurrances
     const expressionReplaced = expression.replace(/×/g, '*').replace(/÷/g, '/');
     const result = math.evaluate(expressionReplaced);
     
