@@ -70,7 +70,7 @@ function appendToDisplay(value) {
     const expressionDisplay = document.getElementById('expression-display');
 
     //check if expression-display is '0', if true append '.' to that instead of clear
-    if (expressionDisplay.value === '0' && value !== '.') {
+    if (expressionDisplay.value === '0' && !isNaN(value) ) {
         document.getElementById('expression-display').value = "";
     }
 
