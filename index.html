@@ -18,7 +18,7 @@
        <div class="buttons-container">
         <div class="top-space"></div>
           <div class="topOne">
-             <div class="time-Icon">9:45</div>
+             <div id="timeDisplay" class="time-Icon">9:45</div>
              <div class="network-Icon"><i class="fa-solid fa-wifi"></i></div>
              <div class="wifi-Icon"><i class="fa-solid fa-signal"></i></div>
              <div class="battery-Icon"><i class="fa-solid fa-battery-three-quarters"></i></div>
@@ -32,10 +32,11 @@
 
           <input class="inputOne fs-4" type="text" id="expression-display" disabled>
           <div class="inputTwo fs-1 text-primary" id="calculated-display"></div>
-          <button type="button" class="btn btn-secondary fw-bolder fs-5 d-flex align-items-center justify-content-center text-success" onclick="clearDisplay()">AC</button>
-          <button type="button" class="btn btn-secondary fw-bolder fs-5 text-success"><i class="fa-solid fa-plus-minus"></i></button>
-          <button type="button" class="btn btn-secondary fw-bolder fs-5 text-success" onclick="appendToDisplay('%')"><i class="fa-solid fa-percent"></i></button>
-          <button type="button" class="btn btn-secondary fw-bolder fs-5 text-primary" onclick="appendToDisplay('÷')"><i class="fa-solid fa-divide"></i></button>
+          <button type="button" class="btn btn-secondary fw-bolder fs-5 d-flex align-items-center justify-content-center text-danger" onclick="clearDisplay()">AC</button>
+          <button type="button" class="btn btn-secondary fw-bolder fs-5 text-danger" onclick="appendToDisplay('+')"><i class="fa-solid fa-plus"></i></button>
+
+          <button type="button" class="btn btn-secondary fw-bolder fs-5 text-danger" onclick="appendToDisplay('%')"><i class="fa-solid fa-percent"></i></button>
+          <button type="button" class="btn btn-secondary fw-bolder fs-5 text-danger" onclick="appendToDisplay('÷')"><i class="fa-solid fa-divide"></i></button>
           
           <button type="button" class="btn btn-secondary num fw-bolder fs-5 text-dark" onclick="appendToDisplay('7')">7</button>
           <button type="button" class="btn btn-secondary num fw-bolder fs-5 text-dark" onclick="appendToDisplay('8')">8</button>
@@ -50,17 +51,12 @@
           <button type="button" class="btn btn-secondary num fw-bolder fs-5 text-dark" onclick="appendToDisplay('1')">1</button>
           <button type="button" class="btn btn-secondary num fw-bolder fs-5 text-dark" onclick="appendToDisplay('2')">2</button>
           <button type="button" class="btn btn-secondary num fw-bolder fs-5 text-dark" onclick="appendToDisplay('3')">3</button>
-          <button type="button" class="btn btn-secondary fw-bolder fs-5 text-primary" onclick="appendToDisplay('+')"><i class="fa-solid fa-plus"></i></button>
-          
           <button type="button" class="btn btn-secondary fw-bolder fs-5 text-primary" onclick="deletOneValue()"><i class="fa-solid fa-arrow-left"></i></button>
-          <button type="button" class="btn btn-secondary num fw-bolder fs-5 text-dark" onclick="appendToDisplay('0')">0</button>
-          <button type="button" class="btn btn-secondary num fw-bolder fs-5 text-dark" onclick="appendToDisplay('.')">.</button>
-          <button type="button" class="btn btn-secondary fw-bolder fs-5 text-primary" onclick="computeDisplay()"><i class="fa-solid fa-equals"></i></button>
           
-          <button type="button" class="btn btn-secondary bg"><i class="fa-solid fa-house"></i></button>
-          <button type="button" class="btn btn-secondary bg"><i class="fa-solid fa-plus-minus"></i></button>
-          <button type="button" class="btn btn-secondary bg"><i class="fa-solid fa-arrow-left"></i><i class="fa-solid fa-arrow-left fa-rotate-180"></i></button>
-          <button type="button" class="btn btn-secondary bg"><i class="fa-regular fa-user"></i></button>
+          <button type="button" class="btn btn-secondary num fw-bolder fs-5 text-dark" onclick="appendToDisplay('.')">.</button>
+          <button type="button" class="btn btn-secondary num fw-bolder fs-5 text-dark" onclick="appendToDisplay('0')">0</button>
+          <button type="button" class="btn equal-btn btn-secondary fw-bolder fs-5 text-danger" onclick="computeDisplay()"><i class="fa-solid fa-equals fa-xl"></i></button>
+          
        </div>
 
     </div>
