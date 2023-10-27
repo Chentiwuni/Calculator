@@ -97,3 +97,24 @@ function deletOneValue(){
     document.getElementById('expression-display').value = deletedKey;
 
 }
+
+
+function updatCurrentTime () {
+    const whereCurrentTimeDisplay = document.getElementById('timeDisplay');
+    const now = new Date();
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+    const seconds = now.getSeconds();
+
+    const timeString = `${hours}:${padZero(minutes)}:${padZero(seconds)}`;
+
+    whereCurrentTimeDisplay.textContent = timeString;
+}
+
+function padZero(number) {
+    return number < 10 ? `0${number}` : number;
+}
+
+updatCurrentTime();
+
+setInterval(updatCurrentTime, 1000);
