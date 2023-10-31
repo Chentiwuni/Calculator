@@ -106,7 +106,7 @@ function updatCurrentTime () {
     const minutes = now.getMinutes();
     const seconds = now.getSeconds();
 
-    const timeString = `${hours}:${padZero(minutes)}:${padZero(seconds)}`;
+    const timeString = `${hours}:${padZero(minutes)}`;
 
     whereCurrentTimeDisplay.textContent = timeString;
 }
