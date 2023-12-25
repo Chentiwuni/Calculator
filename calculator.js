@@ -1,4 +1,4 @@
-let calculated = false; //check if function computeDisplay() has a value
+let calculated = false; //set calculated display to not having value
 document.getElementById('expression-display').value = "0"; //set expression-display initial to 0
 
 
@@ -11,7 +11,7 @@ function computeDisplay() {
     const expression = document.getElementById('expression-display').value; //fetch expression
     const maxDisplayLength = 12;
     const maxDecimalPlace = 10;
-    let calculatedDisplay = document.getElementById('calculated-display'); //displays output results
+    let calculatedDisplay = document.getElementById('calculated-display'); //sets output display
 
 
     //used replace() to replace '×' and '÷' with '*' and '/' and a regular expression with 'g'(global) to find matches in all occurrances
@@ -36,12 +36,12 @@ function computeDisplay() {
 }
 
     calculatedDisplay.innerHTML = formatedResult;
-    calculated = true; //set computeToDisplay() to having value
+    calculated = true; //set calculated display to having value
 
     
     } catch(error) {
         document.getElementById('calculated-display').innerHTML = "Error input"
-        calculated = true; //set computeToDisplay() to having value
+        calculated = true; //set calculated display to having value
     }
 }
 
