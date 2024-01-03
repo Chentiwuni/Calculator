@@ -1,0 +1,20 @@
+winget install -e --id Azul.Zulu.19.JDK # 170 MB
+winget install -e --id Google.AndroidStudio # 1.03 GB
+# open android studio and click through to download, install and configure sdk components and emulator image
+code . -r
+npm install @capacitor/cli @capacitor/core @capacitor/android
+mkdir www
+cp *.html www
+cp *.css  www
+cp *.js   www
+npx cap init
+    Name:       Chenti Calc
+    ID:         me.chenti.calc
+    Directory:  www
+npx cap add android
+npx cap sync
+# optional: you can now open the android dir as a project in android studio
+cd android && ./gradlew assembleDebug && cd ..
+
+# run this to build an apk after making changes
+npx cap sync && cd android && ./gradlew assembleDebug && cd ..
